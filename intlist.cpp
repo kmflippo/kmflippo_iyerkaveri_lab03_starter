@@ -31,7 +31,14 @@ int IntList::sum() const {
 
 // returns true if value is in the list; false if not
 bool IntList::contains(int value) const {
-    return false; // REPLACE THIS NON-SOLUTION
+    Node *n = first;
+    while (n){
+        if (n->info == value){
+            return true;
+        }
+        n = n->next;
+    }
+    return false;
 }
 
 // returns maximum value in list, or 0 if empty list
