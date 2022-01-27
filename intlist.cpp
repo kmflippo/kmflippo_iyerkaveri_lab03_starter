@@ -1,6 +1,6 @@
 // intlist.cpp
 // Implements class IntList
-// YOUR NAME(S), AND DATE
+// Kelly Flippo, Kaveri Iyer, 1/27/2022
 
 #include "intlist.h"
 
@@ -20,7 +20,13 @@ IntList::~IntList() {
 
 // return sum of values in list
 int IntList::sum() const {
-    return 0; // REPLACE THIS NON-SOLUTION
+    int result = 0;
+    Node *n = first;
+    while (n) {
+            result = result + n->info;
+            n = n->next;
+        }
+    return result; // REPLACE THIS NON-SOLUTION
 }
 
 // returns true if value is in the list; false if not
