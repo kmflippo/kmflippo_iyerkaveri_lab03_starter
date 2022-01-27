@@ -23,9 +23,9 @@ int IntList::sum() const {
     int result = 0;
     Node *n = first;
     while (n) {
-            result = result + n->info;
-            n = n->next;
-        }
+        result = result + n->info;
+        n = n->next;
+    }
     return result; // REPLACE THIS NON-SOLUTION
 }
 
@@ -62,7 +62,20 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    return 0.0; // REPLACE THIS NON-SOLUTION
+    Node *n = first;
+    if (!n){
+        return 0;
+    }
+    
+    int listSum = sum();
+    int listLength = 0;
+    
+    while (n){
+        listLength++;
+        n = n-> next;
+    }
+    double avg = ((double)listSum)/listLength;
+    return avg;
 }
 
 // inserts value as new node at beginning of list
