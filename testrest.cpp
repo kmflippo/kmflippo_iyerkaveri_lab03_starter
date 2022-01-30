@@ -41,13 +41,23 @@ void test_destructor(){
 void test_assignmentOperator(){
     IntList list1, list2;
     int arr[] ={10, 50, 60, 70, 100};
+    //cout << "list 1 original: ";
     for(int i = 0; i<5; i++){
         list1.append(arr[i]);
+      //  cout<< arr[i] << ", ";
+        
     }
+    //cout << endl;
+    //cout << "list 2 original: ";
     for(int i = 0; i<5; i++){
         list2.append(2*arr[i]);
+        cout << 2*arr[i] << ", ";
     }
+    //cout << endl;
     list2 = list1;
+
+    //cout << "new list2: ";
+    //list2.print();
 
     assert(list2.sum()==list1.sum());
 
