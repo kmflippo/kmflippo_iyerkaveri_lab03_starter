@@ -1,6 +1,8 @@
 // intlist.cpp
 // Implements class IntList
-// Kelly Flippo, Kaveri Iyer, 1/27/2022
+// Kelly Flippo - 5106695
+// Kaveri Iyer - 5590831
+// 1/27/2022       
 
 #include "intlist.h"
 
@@ -23,13 +25,12 @@ IntList::IntList(const IntList& source) {
 IntList::~IntList() {
 
     Node *temp = first;
-    Node *iterate = temp->next;
-    while(temp->next != nullptr){
+    while(temp != nullptr){
+        Node *iterate = temp->next;
         delete temp;
         temp = iterate;
-        iterate = temp->next;
     }
-    delete temp;
+    first = nullptr;
 }
 
 
@@ -106,20 +107,18 @@ void IntList::insertFirst(int value) {
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
     if (this != &source){
-        
-        /*Node *temp = first;
-        while(temp->next != nullptr){
-            first = first->next;
+        Node *temp = this->first;
+        while(temp){
+            Node* iterate = temp->next;
             delete temp;
-            temp = first;
-        }*/
+            temp = iterate;
+        }
 
         first = nullptr;
-        Node* temp2 = source.first;
-
-        while (temp2 != nullptr) {
-            append(temp2->info);
-            temp2 = temp2->next;
+        temp = source.first;
+        while (temp) {
+            this->append(temp->info);
+            temp = temp->next;
         }
     }
 
